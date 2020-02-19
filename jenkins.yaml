@@ -1,0 +1,4 @@
+docker:
+  imageName: n2p-deploy-automation
+  repoUrl: "542258342574.dkr.ecr.us-east-1.amazonaws.com"
+  imageTag: "c4baf19"
