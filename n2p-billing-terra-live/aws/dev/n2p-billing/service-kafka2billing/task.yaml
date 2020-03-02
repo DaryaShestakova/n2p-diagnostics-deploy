@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-kafka2billing
-  tag: "deploy_test-7-g72ee333"
+  tag: "deploy_test-8-gcb4f1aa"
