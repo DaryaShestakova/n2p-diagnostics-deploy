@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-cdr2billing
-  tag: "4b4977c"
+  tag: "deploy_test"
