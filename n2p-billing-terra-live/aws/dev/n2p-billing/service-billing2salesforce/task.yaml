@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-billing2salesforce
-  tag: "deploy_test-9-g974d709"
+  tag: "rc-2020-03-1-g0edc877"
