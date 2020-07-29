@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-cdr-filter
-  tag: "rc-2020-06-10-g75a9ddd"
+  tag: "rc-2020-06-14-gcc36b2b"
