@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-billing2salesforce
-  tag: "rc-2020-03-10-gc5af65f"
+  tag: "rc-2020-03-11-gf5f33cf"
