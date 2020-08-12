@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-kafka2billing
-  tag: "rc-2020-03-17-gfd70cdc"
+  tag: "rc-2020-03-21-gb74f0af"
