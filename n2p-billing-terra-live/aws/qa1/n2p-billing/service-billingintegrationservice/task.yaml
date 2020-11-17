@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-billingintegrationservice
-  tag: "rc-2020-03-65-g7309251"
+  tag: "rc-2020-03-66-g8a42225"
