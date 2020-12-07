@@ -1,4 +1,4 @@
 docker:
     image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-rating
-    tag: "049ce3a"
+    tag: "dd1707c"
   
