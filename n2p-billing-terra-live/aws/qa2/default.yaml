@@ -1,0 +1,3 @@
+conditions:
+  depends_on_envs: []
+  allowed_branches: []
