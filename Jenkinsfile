@@ -1,2 +1,2 @@
-library 'n2p@jenkins-deploy-fix'
+library 'n2p@dev'
 deployToTerraLive()
