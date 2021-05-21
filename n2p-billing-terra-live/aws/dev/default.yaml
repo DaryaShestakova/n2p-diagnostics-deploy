@@ -1,4 +1,4 @@
 conditions:
   depends_on_envs: []
   allowed_branches: []
-approval_group: ["Jen-Approvers-QA"]
+approval_group: []
