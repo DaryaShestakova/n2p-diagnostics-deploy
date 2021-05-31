@@ -1,2 +1,2 @@
-library 'n2p@feat/deployment-to-multi-region'
+library 'n2p@dev'
 deployToTerraLive()
