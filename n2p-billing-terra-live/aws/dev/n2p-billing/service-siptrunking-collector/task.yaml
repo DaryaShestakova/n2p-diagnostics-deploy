@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-siptrunk-collector
-  tag: "add1b46"
+  tag: "c76582f"
