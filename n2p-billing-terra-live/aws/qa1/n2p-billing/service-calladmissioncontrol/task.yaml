@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-calladmissioncontrol
-  tag: "rc-2021-05-14-gbfb4d0b"
+  tag: "rc-2021-05-16-gda3a37d"
