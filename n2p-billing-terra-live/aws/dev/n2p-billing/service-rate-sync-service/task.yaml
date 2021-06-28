@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-rate-sync-service
-  tag: "8c105fa"
+  tag: "0931a6e"
