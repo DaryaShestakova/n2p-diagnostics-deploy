@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-mysql2kafka
-  tag: "rc-2021-07-20-12-gdad63dd"
+  tag: "rc-2021-07-20-14-gaf54874"
