@@ -1,0 +1,20 @@
+name: Deploy Specific Environment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        type: string
+      approvers:
+        type: string
+        default: null
+      paths-to-deploy-per-env:
+        required: true
+        type: string
+      
+
+jobs:
+  noop:
+    steps:
+    - run: echo "Empty Workflow"
