@@ -9,7 +9,7 @@ on:
       approvers:
         type: string
         default: null
-      paths-to-deploy-per-env:
+      paths-to-deploy:
         required: true
         type: string
       
