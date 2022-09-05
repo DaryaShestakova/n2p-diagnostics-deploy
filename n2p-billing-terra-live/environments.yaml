@@ -1,0 +1,27 @@
+################################################################################################################
+#
+# IDT Accounts IDs can be found at https://github.com/coretech/infra-terra-commons/blob/master/aws/accounts.md
+#
+################################################################################################################
+---
+environments:
+  dev:
+    accountId: 542258342574
+
+  qa1:
+    accountId: 542258342574
+
+  uat:
+    accountId: 577533758790
+
+  prod:
+    accountId: 577533758790
+
+  prod2:
+    accountId: 577533758790
+
+  uat2:
+    accountId: 577533758790
+  
+  pci:
+    accountId: 934804201905

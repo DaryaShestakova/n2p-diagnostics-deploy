@@ -1,25 +1,89 @@
-# This is a basic workflow that is manually triggered
-
 name: Deployment
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   workflow_dispatch:
     inputs:
-      paths-to-deploy:
-        description: 'Specify paths to task.yaml files you want to redeploy.'     
-        required: true
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+      environment:
+        type: string
+        required: false
+      ecs-services:
+        type: string
+        required: false
+      aws-region:
+        type: string
+        required: false
+      ecs-cluster:
+        type: string
+        required: false
+  push:
+    branches:
+      - 'master'
+      - 'main'
+concurrency: n2p-billing-deploy
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
+  prepare:
+    name: Prepare for Deployment
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    outputs:
+      paths-to-deploy: ${{ steps.diff.outputs.paths-to-deploy }}
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.paths-to-deploy }}"
+      - uses: actions/checkout@v3.0.2
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v3.0.2
+        with:
+          repository: coretech/n2p-github-actions
+          ref: v1.3.0
+          token: ${{ secrets.ACTIONS_GITHUB_ACCESS_TOKEN }}
+          path: ./.github/actions/
+          fetch-depth: 0
+      - id: diff
+        uses: ./.github/actions/repo-ecs-collect-files-to-deploy
+        with: 
+          environment: ${{ github.event.inputs.environment }}
+          ecs-services: ${{ github.event.inputs.ecs-services }}
+          aws-region: ${{ github.event.inputs.aws-region }}
+          ecs-cluster: ${{ github.event.inputs.ecs-cluster }}
+  deploy:
+    name: Deploy Service ${{ matrix.path-to-deploy }}
+    needs:
+      - prepare
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        path-to-deploy: ${{ fromJson(needs.prepare.outputs.paths-to-deploy) }}
+      max-parallel: 5
+    steps:
+      - uses: actions/checkout@v3.0.2
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@v3.0.2
+        with:
+          repository: coretech/n2p-github-actions
+          ref: v1.3.0
+          token: ${{ secrets.ACTIONS_GITHUB_ACCESS_TOKEN }}
+          path: ./.github/actions/
+          fetch-depth: 0
+      - uses: ./.github/actions/repo-ecs-deployment-config
+        id: config
+        with:
+          path-to-task: ${{ matrix.path-to-deploy }}
+      - name: Configure AWS credentials
+        uses: ./.github/actions/n2p-configure-aws-credentials
+        with:
+          aws-access-key-id: ${{ secrets.ACTIONS_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.ACTIONS_AWS_SECRET_ACCESS_KEY }}
+          aws-account-id: ${{ steps.config.outputs.aws-account-id }}
+          aws-region: ${{ steps.config.outputs.aws-region }}
+      - name: ECS Deploy
+        uses: ./.github/actions/ecs-deploy
+        with:
+          aws-region: ${{ steps.config.outputs.aws-region }}
+          aws-account-id: ${{ steps.config.outputs.aws-account-id }}
+          repo-name: ${{ steps.config.outputs.repo-name }}
+          environment: ${{ steps.config.outputs.environment }}
+          cluster-name: ${{ steps.config.outputs.cluster-name }}
+          service-name: ${{ steps.config.outputs.service-name }}
+          docker-image: ${{ steps.config.outputs.docker-image }}:${{ steps.config.outputs.docker-tag }}
+
+
