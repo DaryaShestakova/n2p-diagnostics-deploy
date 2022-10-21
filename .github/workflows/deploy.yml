@@ -33,7 +33,7 @@ jobs:
       - uses: actions/checkout@v3.0.2
         with:
           repository: coretech/n2p-github-actions
-          ref: v1.3.0
+          ref: v1-latest
           token: ${{ secrets.ACTIONS_GITHUB_ACCESS_TOKEN }}
           path: ./.github/actions/
           fetch-depth: 0
@@ -60,7 +60,7 @@ jobs:
       - uses: actions/checkout@v3.0.2
         with:
           repository: coretech/n2p-github-actions
-          ref: v1.3.0
+          ref: v1-latest
           token: ${{ secrets.ACTIONS_GITHUB_ACCESS_TOKEN }}
           path: ./.github/actions/
           fetch-depth: 0
