@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-sbc2-collector
-  tag: "rc-2022-03-02"
+  tag: "rc-2022-03-02-5-g27aa30f"

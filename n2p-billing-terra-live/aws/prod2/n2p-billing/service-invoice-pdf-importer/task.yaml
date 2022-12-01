@@ -1,3 +1,3 @@
 docker:
   image: 542258342574.dkr.ecr.us-east-1.amazonaws.com/n2p-billing-invoice-pdf-importer
-  tag: "rc-2022-09-6-gf4b3e92"
+  tag: "rc-2022-09-12-gbac76d3"
