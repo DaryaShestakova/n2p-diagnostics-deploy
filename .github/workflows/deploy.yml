@@ -19,7 +19,7 @@ on:
     branches:
       - 'master'
       - 'main'
-concurrency: n2p-billing-deploy
+concurrency: n2p-diagnostics-deploy
 jobs:
   prepare:
     name: Prepare for Deployment
@@ -39,7 +39,7 @@ jobs:
           fetch-depth: 0
       - id: diff
         uses: ./.github/actions/repo-ecs-collect-files-to-deploy
-        with: 
+        with:
           environment: ${{ github.event.inputs.environment }}
           ecs-services: ${{ github.event.inputs.ecs-services }}
           aws-region: ${{ github.event.inputs.aws-region }}

@@ -1,2 +1,2 @@
-# n2p-billing-deploy
-Deployment Repository for N2P Billing Team
+# n2p-diagnistics-deploy
+Deployment Repository for N2P Diagnostics
